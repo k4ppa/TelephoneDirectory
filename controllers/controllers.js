@@ -1,26 +1,30 @@
 var telephoneDirectoryControllers = angular.module('telephoneDirectoryControllers', []);
 
-telephoneDirectoryControllers.controller('telephoneDirectoryCtrl', function ($scope) {
+telephoneDirectoryControllers.constant("baseUrl", "http://localhost:2403/contacts/")
+    .controller('telephoneDirectoryCtrl', function ($scope, $http, baseUrl) {
     $scope.newFirstName = '';
     $scope.newLastName = '';
     $scope.newPhoneNumber = '';
+    $scope.contacts = [{}];
 
-    $scope.contacts = [
-        {'firstName': 'Mattia',
-            'lastName': 'Cappa',
-            'phoneNumber': '+39 335 1411077'}
-    ];
+    $scope.createContact = function (newContact) {
+        $http.post(baseUrl, newContact).success(function (newContact) {
+            $scope.contacts.push(newContact);
+        });
+    };
 
-    $scope.createContact = function() {
-        var contact = {
+    $scope.insertNewContact = function() {
+        var newContact = {
             'firstName': $scope.newFirstName,
             'lastName': $scope.newLastName,
             'phoneNumber': $scope.newPhoneNumber};
 
-        $scope.contacts.push(contact);
+        $scope.createContact(newContact);
 
         $scope.newFirstName = '';
         $scope.newLastName = '';
         $scope.newPhoneNumber = '';
     }
 });
+
+

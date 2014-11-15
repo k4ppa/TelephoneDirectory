@@ -1,13 +1,6 @@
 <input type="text" id="firstName" ng-model="newFirstName">
 <input type="text" id="lastName" ng-model="newLastName">
 <input type="text" id="phoneNumber" ng-model="newPhoneNumber">
-<button id="createContact" ng-click="createContact()">Create new contact</button>
+<button id="createContact" ng-click="insertNewContact()">Create new contact</button>
 
-<ul>
-    <li ng-repeat="contact in contacts">
-        <span>{{contact.firstName}}</span>
-        <p>{{contact.lastName}}</p>
-        <p>{{contact.phoneNumber}}</p>
-    </li>
-</ul>
 
