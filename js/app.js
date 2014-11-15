@@ -7,12 +7,12 @@ telephoneDirectoryApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/homePage', {
-                templateUrl: 'views/homePage.html'
-                //controller: 'homePageCtrl'
+                templateUrl: 'views/homePage.html',
+                controller: 'telephoneDirectoryCtrl'
             }).
             when('/newContact', {
                 templateUrl: 'views/newContact.html',
-                controller: 'newContactCtrl'
+                controller: 'telephoneDirectoryCtrl'
             }).
             otherwise({
                 redirectTo: '/homePage'
