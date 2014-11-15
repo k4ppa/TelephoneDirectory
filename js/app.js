@@ -6,13 +6,13 @@ var telephoneDirectoryApp = angular.module('telephoneDirectoryApp', [
 telephoneDirectoryApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            //when('/newContact', {
-            //    templateUrl: 'views/newContact.html',
-            //    controller: 'newContactCtrl'
-            //}).
             when('/homePage', {
                 templateUrl: 'views/homePage.html'
                 //controller: 'homePageCtrl'
+            }).
+            when('/newContact', {
+                templateUrl: 'views/newContact.html',
+                controller: 'newContactCtrl'
             }).
             otherwise({
                 redirectTo: '/homePage'
